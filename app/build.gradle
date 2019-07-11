@@ -45,6 +45,8 @@ dependencies {
 
     // Alternatively, use ArSceneView without the UX dependency.
     implementation 'com.google.ar.sceneform:core:1.10.0'
+
+    implementation 'com.google.android.material:material:1.0.0'
 }
 
 sceneform.asset('sampledata/Chair.obj',

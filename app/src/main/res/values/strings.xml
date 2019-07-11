@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">SceneForm1</string>
+    <string name="animation">Animation</string>
+    <string name="augmented_reality">Augmented reality</string>
+    <string name="hide">Hide</string>
 </resources>

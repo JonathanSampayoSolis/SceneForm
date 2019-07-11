@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_animation"
+        android:title="@string/animation"
+        android:icon="@drawable/ic_3d_rotation_white"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/menu_ar"
+        android:title="@string/augmented_reality"
+        android:icon="@drawable/ic_ar_white"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/menu_hide"
+        android:title="@string/hide"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_arrow_drop_up_white"
+        tools:ignore="AlwaysShowAction" />
+
+</menu>
