@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 	private TransformationSystem transformationSystem;
 	private ModelRenderable mRender;
 	
-	private AppBarLayout appBarLayout;
+	private Toolbar toolbar;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +41,13 @@ public class MainActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_main);
 		
 		sceneView = findViewById(R.id.scene_view);
-		appBarLayout = findViewById(R.id.appbar_layout);
 		
-		Toolbar toolbar = findViewById(R.id.toolbar);
+		toolbar = findViewById(R.id.toolbar);
 		
 		setSupportActionBar(toolbar);
 		Objects.requireNonNull(getSupportActionBar()).setTitle("SKU12345");
+		
+		findViewById(R.id.btn_show_menu).setOnClickListener(v -> toolbar.setVisibility(View.VISIBLE));
 		
 		loadModel("Chair.sfb");
 	}
@@ -82,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
 				
 				break;
 			case R.id.menu_hide:
-				appBarLayout.setExpanded(false);
+				toolbar.setVisibility(View.GONE);
 				break;
 		}
 		
