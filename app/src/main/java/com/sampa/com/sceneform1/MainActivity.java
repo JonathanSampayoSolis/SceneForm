@@ -1,5 +1,6 @@
 package com.sampa.com.sceneform1;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -38,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
 	private boolean isRotating;
 
+	private final String MODEL_NAME = "Chair.sfb";
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -52,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
 		findViewById(R.id.btn_show_menu).setOnClickListener(v -> toolbar.setVisibility(View.VISIBLE));
 
-		loadModel("Chair.sfb");
+		loadModel(MODEL_NAME);
 	}
 
 	@Override
@@ -96,7 +99,10 @@ public class MainActivity extends AppCompatActivity {
 				}
 				break;
 			case R.id.menu_ar:
+				Intent intent = new Intent(this, ArActivity.class);
+				intent.putExtra(ArActivity.EXTRA_MODEL_NAME, MODEL_NAME);
 
+				startActivity(intent);
 				break;
 			case R.id.menu_hide:
 				toolbar.setVisibility(View.GONE);
