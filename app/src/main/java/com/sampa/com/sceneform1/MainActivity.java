@@ -3,13 +3,13 @@ package com.sampa.com.sceneform1;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.ActionMode;
 import android.view.Menu;
-import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.android.material.appbar.AppBarLayout;
 import com.google.ar.core.exceptions.CameraNotAvailableException;
 import com.google.ar.sceneform.FrameTime;
 import com.google.ar.sceneform.SceneView;
@@ -32,12 +32,15 @@ public class MainActivity extends AppCompatActivity {
 	private TransformationSystem transformationSystem;
 	private ModelRenderable mRender;
 	
+	private AppBarLayout appBarLayout;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
 		sceneView = findViewById(R.id.scene_view);
+		appBarLayout = findViewById(R.id.appbar_layout);
 		
 		Toolbar toolbar = findViewById(R.id.toolbar);
 		
@@ -67,6 +70,23 @@ public class MainActivity extends AppCompatActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.menu_main, menu);
 		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+			case R.id.menu_animation:
+				
+				break;
+			case R.id.menu_ar:
+				
+				break;
+			case R.id.menu_hide:
+				appBarLayout.setExpanded(false);
+				break;
+		}
+		
+		return super.onOptionsItemSelected(item);
 	}
 	
 	// region:: PRIVATE METHODS
