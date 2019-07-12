@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
 	private boolean isRotating;
 
-	private final String MODEL_NAME = "Chair.sfb";
+	private final String MODEL_NAME = "real_chair.sfb";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
 		modelNode.setRenderable(mRender);
 
 		sceneView.getScene().addChild(modelNode);
-		modelNode.setLocalPosition(new Vector3(0, -1f, -2f));
+		modelNode.setLocalPosition(new Vector3(0, -.3f, -1));
 
 		modelPlaced = true;
 	}
@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
 
 		RotatingNode rotatingNode = new RotatingNode(false, false, 0f);
 		rotatingNode.setParent(sceneView.getScene());
-		rotatingNode.setLocalPosition(new Vector3(0f, -1f, -2f));
+		rotatingNode.setLocalPosition(new Vector3(0f, -.3f, -1));
 		rotatingNode.setName("Chair");
 		rotatingNode.setRenderable(mRender);
 
@@ -174,7 +174,6 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        }));
 	}
-
 
 	// endregion
 

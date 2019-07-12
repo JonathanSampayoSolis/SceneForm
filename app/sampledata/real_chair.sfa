@@ -15,10 +15,10 @@
           ],
         },
         {
-          metallic: 0,
+          metallic: 1,
         },
         {
-          roughness: 1,
+          roughness: 0.14280000000000001,
         },
         {
           opacity: null,
@@ -34,10 +34,9 @@
       'Orientation',
     ],
     collision: {},
-    file: 'sampledata/Chair.obj',
-    name: 'Chair',
+    file: 'sampledata/real_chair.obj',
+    name: 'real_chair',
     recenter: 'root',
-    scale: 0.19659799999999999,
   },
   samplers: [
     {
