@@ -16,6 +16,13 @@
         app:showAsAction="always"/>
 
     <item
+        android:id="@+id/menu_texture"
+        android:title="@string/texture"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_color_lens_white"
+        tools:ignore="AlwaysShowAction" />
+
+    <item
         android:id="@+id/menu_hide"
         android:title="@string/hide"
         app:showAsAction="always"

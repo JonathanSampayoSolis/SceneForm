@@ -12,17 +12,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
+import com.google.android.filament.TextureSampler;
 import com.google.ar.core.exceptions.CameraNotAvailableException;
 import com.google.ar.sceneform.FrameTime;
 import com.google.ar.sceneform.Node;
 import com.google.ar.sceneform.SceneView;
 import com.google.ar.sceneform.math.Vector3;
+import com.google.ar.sceneform.rendering.Material;
 import com.google.ar.sceneform.rendering.ModelRenderable;
+import com.google.ar.sceneform.rendering.Texture;
 import com.google.ar.sceneform.ux.FootprintSelectionVisualizer;
 import com.google.ar.sceneform.ux.TransformableNode;
 import com.google.ar.sceneform.ux.TransformationSystem;
 
 import java.util.Objects;
+import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -107,6 +111,9 @@ public class MainActivity extends AppCompatActivity {
 			case R.id.menu_hide:
 				toolbar.setVisibility(View.GONE);
 				break;
+			case R.id.menu_texture:
+				Utils.setTextureToRender(this, mRender, "textures/Chair_BaseColor_2.png");
+				break;
 		}
 
 		return super.onOptionsItemSelected(item);
@@ -118,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
 		if (mRender == null) {
 			return;
 		}
-
+		
 		TransformableNode modelNode = new TransformableNode(transformationSystem);
 
 		modelNode.getRotationController().setEnabled(true);

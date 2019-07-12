@@ -25,6 +25,8 @@ public class ArActivity extends AppCompatActivity {
 	
 	public static final String EXTRA_MODEL_NAME = "EXTRA_MODEL_NAME";
 	
+	public static final String EXTRA_MODEL_TEXTURE = "EXTRA_MODEL_TEXTURE";
+	
 	private ArFragment arFragment;
 	private ModelRenderable mRender;
 	
