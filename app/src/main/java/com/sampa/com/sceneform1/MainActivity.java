@@ -12,21 +12,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
-import com.google.android.filament.TextureSampler;
 import com.google.ar.core.exceptions.CameraNotAvailableException;
 import com.google.ar.sceneform.FrameTime;
-import com.google.ar.sceneform.Node;
 import com.google.ar.sceneform.SceneView;
 import com.google.ar.sceneform.math.Vector3;
-import com.google.ar.sceneform.rendering.Material;
 import com.google.ar.sceneform.rendering.ModelRenderable;
-import com.google.ar.sceneform.rendering.Texture;
 import com.google.ar.sceneform.ux.FootprintSelectionVisualizer;
 import com.google.ar.sceneform.ux.TransformableNode;
 import com.google.ar.sceneform.ux.TransformationSystem;
 
 import java.util.Objects;
-import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
 	private boolean isRotating;
 
 	private final String MODEL_NAME = "real_chair.sfb";
+	
+	private String modelTexture = null;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -105,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
 			case R.id.menu_ar:
 				Intent intent = new Intent(this, ArActivity.class);
 				intent.putExtra(ArActivity.EXTRA_MODEL_NAME, MODEL_NAME);
+				intent.putExtra(ArActivity.EXTRA_MODEL_TEXTURE, modelTexture);
 
 				startActivity(intent);
 				break;
@@ -112,7 +110,8 @@ public class MainActivity extends AppCompatActivity {
 				toolbar.setVisibility(View.GONE);
 				break;
 			case R.id.menu_texture:
-				Utils.setTextureToRender(this, mRender, "textures/Chair_BaseColor_2.png");
+				modelTexture = "Chair_BaseColor_2.png";
+				Utils.setTextureToRender(this, mRender, modelTexture);
 				break;
 		}
 

@@ -10,7 +10,7 @@ public final class Utils {
 	
 	public static void setTextureToRender(Context context, ModelRenderable render, String mTexture) {
 		Texture.builder()
-				.setSource(context, Uri.parse(mTexture))
+				.setSource(context, Uri.parse("textures/" + mTexture))
 				.setUsage(Texture.Usage.COLOR)
 				.setSampler(
 						Texture.Sampler.builder()
