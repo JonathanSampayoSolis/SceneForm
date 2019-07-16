@@ -5,4 +5,16 @@
     <string name="hide">Hide</string>
     <string name="none">none</string>
     <string name="texture">Texture</string>
+    <string name="rotacion_automatica">Rotación automática</string>
+    <string name="rotacion_automatica_content">Puedes visualizar el modelo 3D rotando automáticamente</string>
+    <string name="ver_en_ra">Ver en RA</string>
+    <string name="ver_en_ra_content">Genera una vista en realidad aumentada del modelo</string>
+    <string name="interactua_con_el_modelo">Interactúa con el modelo</string>
+    <string name="interactua_con_el_modelo_content">Mediante gestos puedes acercarte, alejar o rotar el modelo con dos dedos.</string>
+    <string name="interaccion_protegida">Interacción protegida</string>
+    <string name="interaccion_protegida_content">Para comenzar a interactuar con el modelo da un click al medio de tu pantalla.</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="finalizar">Finalizar</string>
+    <string name="ayuda">Ayuda</string>
+    <string name="ocultar_barra">Ocultar barra</string>
 </resources>

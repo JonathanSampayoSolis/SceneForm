@@ -3,6 +3,7 @@ package com.sampa.com.sceneform1;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,6 +23,11 @@ import com.google.ar.sceneform.ux.TransformableNode;
 import com.google.ar.sceneform.ux.TransformationSystem;
 
 import java.util.Objects;
+import java.util.UUID;
+
+import io.blushine.android.ui.showcase.MaterialShowcaseSequence;
+import io.blushine.android.ui.showcase.MaterialShowcaseView;
+import io.blushine.android.ui.showcase.ShowcaseConfig;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -78,6 +84,12 @@ public class MainActivity extends AppCompatActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.menu_main, menu);
+		
+		new Handler().post(() -> {
+			if (TutorialSharedPreferences.mustShow(this))
+				startShowcase();
+		});
+		
 		return true;
 	}
 
@@ -112,6 +124,9 @@ public class MainActivity extends AppCompatActivity {
 			case R.id.menu_texture:
 				modelTexture = "Chair_BaseColor_2.png";
 				Utils.setTextureToRender(this, mRender, modelTexture);
+				break;
+			case R.id.menu_help:
+				new Handler().post(this::startShowcase);
 				break;
 		}
 
@@ -180,7 +195,50 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        }));
 	}
-
+	
+	private void startShowcase() {
+		ShowcaseConfig config = new ShowcaseConfig(MainActivity.this);
+		config.setDelay(500);
+		
+		MaterialShowcaseSequence mSequence = new MaterialShowcaseSequence(MainActivity.this, UUID.randomUUID().toString());
+		mSequence.setConfig(config);
+		
+		mSequence.addSequenceItem(
+				new MaterialShowcaseView.Builder(MainActivity.this)
+						.setTarget((View) findViewById(R.id.menu_animation))
+						.setTitleText(getString(R.string.rotacion_automatica))
+						.setContentText(getString(R.string.rotacion_automatica_content))
+						.setDismissText(getString(R.string.siguiente))
+						.show()
+		);
+		
+		mSequence.addSequenceItem(
+				new MaterialShowcaseView.Builder(MainActivity.this)
+						.setTarget((View) findViewById(R.id.menu_ar))
+						.setTitleText(getString(R.string.ver_en_ra))
+						.setContentText(getString(R.string.ver_en_ra_content))
+						.setDismissText(getString(R.string.siguiente))
+						.show()
+		);
+		
+		mSequence.addSequenceItem(
+				new MaterialShowcaseView.Builder(MainActivity.this)
+						.setTarget((View) findViewById(R.id.view_center))
+						.setTitleText(getString(R.string.interactua_con_el_modelo))
+						.setContentText(getString(R.string.interactua_con_el_modelo_content))
+						.setDismissText(getString(R.string.siguiente))
+						.show()
+		);
+		
+		mSequence.addSequenceItem(
+				new MaterialShowcaseView.Builder(MainActivity.this)
+						.setTitleText(getString(R.string.interaccion_protegida))
+						.setContentText(getString(R.string.interaccion_protegida_content))
+						.setDismissText(getString(R.string.finalizar))
+						.show()
+		);
+	}
+	
 	// endregion
 
 	// region:: REFERENCE METHODS

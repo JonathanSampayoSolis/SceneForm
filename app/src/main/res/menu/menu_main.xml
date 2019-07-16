@@ -12,7 +12,7 @@
     <item
         android:id="@+id/menu_ar"
         android:title="@string/augmented_reality"
-        android:icon="@drawable/ic_ar_white"
+        android:icon="@drawable/ic_filter_center_focus_white"
         app:showAsAction="always"/>
 
     <item
@@ -23,9 +23,16 @@
         tools:ignore="AlwaysShowAction" />
 
     <item
+        android:id="@+id/menu_help"
+        android:title="@string/ayuda"
+        app:showAsAction="never"
+        android:icon="@drawable/ic_arrow_drop_up_white"
+        tools:ignore="AlwaysShowAction" />
+
+    <item
         android:id="@+id/menu_hide"
-        android:title="@string/hide"
-        app:showAsAction="always"
+        android:title="@string/ocultar_barra"
+        app:showAsAction="never"
         android:icon="@drawable/ic_arrow_drop_up_white"
         tools:ignore="AlwaysShowAction" />
 
