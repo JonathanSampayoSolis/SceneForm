@@ -49,6 +49,8 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
 
     implementation 'com.github.BlushineIO:MaterialShowcaseView:2.1.0'
+
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
 }
 
 sceneform.asset('sampledata/real_chair.obj',
